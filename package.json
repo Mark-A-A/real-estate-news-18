@@ -1,0 +1,30 @@
+{
+  "name": "real-estate-news",
+  "version": "1.0.0",
+  "description": "Application using MongoDB, Express, and Node that displays real estate articles from NY Times",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mark-A-A/real-estate-news-18.git"
+  },
+  "author": "Mark A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mark-A-A/real-estate-news-18/issues"
+  },
+  "homepage": "https://github.com/Mark-A-A/real-estate-news-18#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cheerio": "^0.20.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.7",
+    "morgan": "^1.7.0",
+    "request": "^2.69.0"
+  }
+}
