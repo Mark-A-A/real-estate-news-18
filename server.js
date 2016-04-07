@@ -1,15 +1,16 @@
-global.mongooseModel = require('./model/articles.js');
-var router = require('./controller/controller.js');
+var db = require('./connection/config.js');
 
-var PORT = 8000; 
+var router        = require('./controller/controller.js');
 
-var express = require('express');
+var PORT              = process.env.PORT || 8000; 
+
+var express           = require('express');
 
 var expressHandlebars  = require('express-handlebars');
 
-var bodyParser= require('body-parser');
+var bodyParser          = require('body-parser');
 
-var mongoose = require('mongoose');
+var mongoose            = require('mongoose');
 
 var app = express();
  
@@ -31,10 +32,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/", router);
 
 //____________Database Connection_____________________
-mongooseModel.db.on('error', function(err) {
+
+//connecting MongoDB
+var db = mongoose.connection;
+
+db.on('error', function(err) {
   console.log('Mongoose Error: ', err);
 });
-mongooseModel.db.once('open', function() {
+
+db.once('open', function() {
   console.log('Mongoose connection successful.');
 });
 

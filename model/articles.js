@@ -1,27 +1,17 @@
-
 console.log('articles.js ready');
-
 var mongoose = require('mongoose');
 
+var db = require("../connection/config.js");
 
-// COnnecting MongoDB
-//Defining Schema for our models
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/real-estate-news');
-
-var db = mongoose.connection;
-
+//Defining Schema for our models
 var articleSchema = new Schema({
   title:  String,
   url: String,
+  thumbnailUrl: String
 });
 
-var article = mongoose.model('nytimes-articles', articleSchema);
+var Article = mongoose.model('article', articleSchema);
 
-var mongooseModel = {
-  db: db,
-  articles: article
-}
-
-module.exports = mongooseModel;
+module.exports = Article;
